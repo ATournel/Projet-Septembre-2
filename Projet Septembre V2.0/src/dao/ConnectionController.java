@@ -134,6 +134,12 @@ public class ConnectionController {
 				userInstance.setPrenom(result.getString("prenom"));
 				userInstance.setNom(result.getString("nom"));
 				userInstance.setMail(result.getString("mail"));
+				String imgUrl = result.getString("img");
+				
+				if(imgUrl != null) {
+					userInstance.setImgUrl(imgUrl);
+				}
+				
 
 				userList.add(userInstance);
 			}

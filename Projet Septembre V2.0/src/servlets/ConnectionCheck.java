@@ -63,6 +63,7 @@ public class ConnectionCheck extends HttpServlet {
 			session.setAttribute("prenom", userList.get(0).getPrenom());
 			session.setAttribute("mail", userList.get(0).getMail());
 			session.setAttribute("id", userList.get(0).getId());
+			session.setAttribute("userImage", userList.get(0).getImgUrl());
 			session.setAttribute("isConnected", true);
 			
 			request.getRequestDispatcher("/home.jsp").forward(request, response);

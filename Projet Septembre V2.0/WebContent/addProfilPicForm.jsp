@@ -11,7 +11,7 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<h3>Ajouter une photo</h3>
 	<form action="AddProfilPic" method="post">
-	<input type="hidden" name="pseudo" value="${ sessionScope.pseudo }">
+	<input type="hidden" name="pseudo" value="${ sessionScope.pseudo }" id="pseudo">
 		<label for="userPic">Url: </label> <input required type="text" name="userPic"
 			id="userPic">
 		<button type="submit">Ajouter</button>

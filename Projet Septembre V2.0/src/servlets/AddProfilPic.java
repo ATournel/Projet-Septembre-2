@@ -41,22 +41,24 @@ public class AddProfilPic extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		HttpSession session = request.getSession();
+		
 		String imageUrl = request.getParameter("userPic");
-		String pseudo = request.getParameter("psudo");
-		System.out.print(imageUrl);
-
+		String pseudo = request.getParameter("pseudo");
+		
 		request.setAttribute("imageUrl", imageUrl);
+		request.setAttribute("pseudo", pseudo);
 
 		ProfilPicController addImgController = new ProfilPicController();
 
 		boolean imgSuccess = addImgController.addProfilPic(request);
 
 		if (imgSuccess) {
-			HttpSession session = request.getSession();
+					
 			session.setAttribute("userImage", imageUrl);
 			request.getRequestDispatcher("/userProfil.jsp").forward(request, response);
 		} else {
+			
 			request.setAttribute("wrongUrl", "Veuillez renseigner une Url valide!");
 			request.getRequestDispatcher("/addProfilPicForm.jsp").forward(request, response);
 		}

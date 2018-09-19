@@ -17,6 +17,7 @@
 	<c:choose>
 		<c:when test="${ not empty sessionScope.userImage }">
 			<img src="${ sessionScope.userImage }">
+			<p><a href="addProfilPicForm.jsp">Modifier la photo!</a></p>
 		</c:when>
 		<c:otherwise>
 			<img src="images/ghost_person.png">

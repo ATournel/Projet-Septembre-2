@@ -6,6 +6,15 @@ public class User {
 	String prenom;
 	String nom;
 	String mail;
+	String imgUrl;
+
+	public String getImgUrl() {
+		return imgUrl;
+	}
+
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
 
 	public int getId() {
 		return id;
