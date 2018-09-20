@@ -31,6 +31,9 @@
 		</c:forEach>
 	</div>
 
-	<a href="EventsPage">Plus d'évenements...</a>
+	<form action="EventsPage" method="post">
+		<Button type="submit">Plus d'évenements...</Button>
+	</form>
+
 </body>
 </html>

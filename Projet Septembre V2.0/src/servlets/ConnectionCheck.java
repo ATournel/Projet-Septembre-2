@@ -59,12 +59,12 @@ public class ConnectionCheck extends HttpServlet {
 			HttpSession session = request.getSession();
 
 			session.setAttribute("pseudo", pseudo);
-			ArrayList<User> userList = loginSession.connectionInfos(request);
-			session.setAttribute("nom", userList.get(0).getNom());
-			session.setAttribute("prenom", userList.get(0).getPrenom());
-			session.setAttribute("mail", userList.get(0).getMail());
-			session.setAttribute("id", userList.get(0).getId());
-			session.setAttribute("userImage", userList.get(0).getImgUrl());
+			User loggedUser = loginSession.connectionInfos(request);
+			session.setAttribute("nom", loggedUser.getNom());
+			session.setAttribute("prenom", loggedUser.getPrenom());
+			session.setAttribute("mail", loggedUser.getMail());
+			session.setAttribute("id", loggedUser.getId());
+			session.setAttribute("userImage", loggedUser.getImgUrl());
 			session.setAttribute("isConnected", true);
 						
 			response.sendRedirect("HomePage");

@@ -114,10 +114,10 @@ public class ConnectionController {
 
 	}
 
-	public ArrayList<User> connectionInfos(HttpServletRequest request) {
+	public User connectionInfos(HttpServletRequest request) {
 
 		SqlConnection infosConnection = new SqlConnection();
-		ArrayList<User> userList = new ArrayList<User>();
+		
 		Connection con = infosConnection.SqlConectionStart();
 		String pseudo = (String) request.getAttribute("pseudo");
 		User userInstance = new User();
@@ -146,8 +146,7 @@ public class ConnectionController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		userList.add(userInstance);
-		return userList;
+		return userInstance;
 	}
 
 }
