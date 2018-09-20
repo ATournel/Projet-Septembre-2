@@ -57,7 +57,7 @@ public class ConnectionCreate extends HttpServlet {
 		boolean pseudoLibre = signUpControl.connectionCreation(request);
 
 		if (pseudoLibre) {
-			request.getRequestDispatcher("/home.jsp").forward(request, response);
+			response.sendRedirect("HomePage");
 		} else {
 			request.setAttribute("invalid", "Pseudo déjà pris!");
 			request.getRequestDispatcher("/singUpForm.jsp").forward(request, response);

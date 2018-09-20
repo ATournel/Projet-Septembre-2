@@ -9,7 +9,11 @@
 <body>
 
 	<ul>
-		<li><a href="home.jsp">Accueil</a></li>
+		<li>
+			<form action="HomePage">
+				<button type="submit">Accueil</button>
+			</form>
+		</li>
 		<li>Logo</li>
 		<c:choose>
 			<c:when test="${ not empty sessionScope.isConnected }">

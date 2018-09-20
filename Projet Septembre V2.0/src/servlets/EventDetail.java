@@ -7,17 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.EventsController;
+import models.Event;
+
 /**
- * Servlet implementation class Deco
+ * Servlet implementation class EventDetail
  */
-@WebServlet("/Deco")
-public class Deco extends HttpServlet {
+@WebServlet("/EventDetail")
+public class EventDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Deco() {
+    public EventDetail() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,9 +38,16 @@ public class Deco extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getSession().invalidate();;
+		int idEvent = Integer.parseInt(request.getParameter("idEvent"));
+		request.setAttribute("idEvent", idEvent);
 		
-		response.sendRedirect("HomePage");
+		EventsController detailEventsController = new EventsController();
+		Event detailedEvent = detailEventsController.detailEvents(request);
+		
+		request.setAttribute("detailedEvent", detailedEvent);
+		
+		request.getRequestDispatcher("/ficheEvent.jsp").forward(request, response);
+		
 	}
 
 }

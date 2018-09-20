@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.ProfilPicController;
+import dao.ProfilController;
 
 /**
  * Servlet implementation class AddProfilPic
@@ -49,7 +49,7 @@ public class AddProfilPic extends HttpServlet {
 		request.setAttribute("imageUrl", imageUrl);
 		request.setAttribute("pseudo", pseudo);
 
-		ProfilPicController addImgController = new ProfilPicController();
+		ProfilController addImgController = new ProfilController();
 
 		boolean imgSuccess = addImgController.addProfilPic(request);
 

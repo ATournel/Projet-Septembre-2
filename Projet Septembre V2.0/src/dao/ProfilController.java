@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 
-public class ProfilPicController {
+public class ProfilController {
 
 	public boolean addProfilPic(HttpServletRequest request) {
 		boolean imgSuccess = false;

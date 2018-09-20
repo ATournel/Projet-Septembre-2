@@ -119,35 +119,34 @@ public class ConnectionController {
 		SqlConnection infosConnection = new SqlConnection();
 		ArrayList<User> userList = new ArrayList<User>();
 		Connection con = infosConnection.SqlConectionStart();
-
+		String pseudo = (String) request.getAttribute("pseudo");
+		User userInstance = new User();
 		try {
 			Statement st = (Statement) con.createStatement();
 
-			String sql = "SELECT * FROM user WHERE pseudo='" + request.getAttribute("pseudo") + "'";
+			String sql = "SELECT * FROM user WHERE pseudo='" + pseudo + "'";
 
 			ResultSet result = st.executeQuery(sql);
 
 			while (result.next()) {
-				User userInstance = new User();
-
-				userInstance.setId(result.getInt("id"));
+				
+				userInstance.setId(result.getInt("id_user"));
 				userInstance.setPrenom(result.getString("prenom"));
 				userInstance.setNom(result.getString("nom"));
 				userInstance.setMail(result.getString("mail"));
 				String imgUrl = result.getString("img");
-				
-				if(imgUrl != null) {
+
+				if (imgUrl != null) {
 					userInstance.setImgUrl(imgUrl);
 				}
-				
 
-				userList.add(userInstance);
 			}
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		userList.add(userInstance);
 		return userList;
 	}
 

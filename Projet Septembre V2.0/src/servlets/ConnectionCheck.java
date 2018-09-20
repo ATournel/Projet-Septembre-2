@@ -3,6 +3,7 @@ package servlets;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -65,8 +66,9 @@ public class ConnectionCheck extends HttpServlet {
 			session.setAttribute("id", userList.get(0).getId());
 			session.setAttribute("userImage", userList.get(0).getImgUrl());
 			session.setAttribute("isConnected", true);
+						
+			response.sendRedirect("HomePage");
 			
-			request.getRequestDispatcher("/home.jsp").forward(request, response);
 		} else {
 			request.setAttribute("status", "Mauvais Login ou Mot de Passe");
 			request.getRequestDispatcher("/connectionForm.jsp").forward(request, response);
