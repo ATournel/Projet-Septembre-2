@@ -1,0 +1,72 @@
+@charset "ISO-8859-1";
+
+/*
+* {
+	border: 1px solid black;
+	margin: 0;
+	padding: 0;
+}
+*/
+
+/*Header Style*/
+.col {
+	text-align: center;
+}
+
+.headerCol {
+	padding-top: 10vh;
+	padding-bottom: 8vh;
+}
+
+.headerTitre {
+	margin-bottom: 5vh;
+}
+
+.headerFull {
+	margin-top: 2vh;
+	margin-bottom: 8vh;
+	width: 100%;
+}
+
+/*Back to top button*/
+#myBtn {
+	display: none; /* Hidden by default */
+	position: fixed; /* Fixed/sticky position */
+	bottom: 20px; /* Place the button at the bottom of the page */
+	right: 30px; /* Place the button 30px from the right */
+	z-index: 99; /* Make sure it does not overlap */
+	border: none; /* Remove borders */
+	outline: none; /* Remove outline */
+	background-color: red; /* Set a background color */
+	color: white; /* Text color */
+	cursor: pointer; /* Add a mouse pointer on hover */
+	padding: 15px; /* Some padding */
+	border-radius: 10px; /* Rounded corners */
+	font-size: 18px; /* Increase font size */
+}
+
+#myBtn:hover {
+	background-color: #555; /* Add a dark-grey background on hover */
+}
+
+/*Events Lists*/
+.eventList {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.events {
+	border: 1px solid black;
+	padding: 3vw;
+	margin: 3vw;
+	font-size: 1.5rem;
+	text-align: center;
+	width: 25vw;
+	background: rgba(54, 25, 25, .25);
+}
+
+.events:hover {
+	transform: scale(1.2);
+}

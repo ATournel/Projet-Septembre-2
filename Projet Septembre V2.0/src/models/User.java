@@ -3,10 +3,19 @@ package models;
 public class User {
 
 	int id;
+	String pseudo;
 	String prenom;
 	String nom;
 	String mail;
 	String imgUrl;
+
+	public String getPseudo() {
+		return pseudo;
+	}
+
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
+	}
 
 	public String getImgUrl() {
 		return imgUrl;

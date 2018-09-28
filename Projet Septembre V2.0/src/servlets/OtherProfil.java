@@ -7,17 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.ProfilController;
+import models.User;
+
 /**
- * Servlet implementation class Deco
+ * Servlet implementation class OtherProfil
  */
-@WebServlet("/Deco")
-public class Deco extends HttpServlet {
+@WebServlet("/OtherProfil")
+public class OtherProfil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Deco() {
+    public OtherProfil() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,10 +37,19 @@ public class Deco extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String otherPseudo = request.getParameter("otherUserPseudo");
 		
-		request.getSession().invalidate();
+		request.setAttribute("otherPseudo", otherPseudo);
 		
-		response.sendRedirect("HomePage");
+		ProfilController otherProfil = new ProfilController();
+		
+		User otherUser = otherProfil.checkOtherProfil(request);
+		
+		request.setAttribute("otherUser", otherUser);
+		
+		request.getRequestDispatcher("/otherProfil.jsp").forward(request, response);
+		
 	}
 
 }

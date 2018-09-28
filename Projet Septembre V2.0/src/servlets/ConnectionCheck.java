@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -53,7 +54,13 @@ public class ConnectionCheck extends HttpServlet {
 		request.setAttribute("mdp", mdp);
 
 		ConnectionController loginSession = new ConnectionController();
-		boolean status = loginSession.connectionStatusUpdate(request);
+		boolean status=false;
+		try {
+			status = loginSession.connectionStatusUpdate(request);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		if (status) {
 			HttpSession session = request.getSession();

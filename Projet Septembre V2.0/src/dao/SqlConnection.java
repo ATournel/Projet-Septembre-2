@@ -19,7 +19,7 @@ public class SqlConnection {
 			String pwd = "Ioplop88";
 
 			con = (Connection) DriverManager.getConnection(url, user, pwd);
-
+			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -25,7 +25,7 @@ public class ConnectionController {
 		this.connectionStatus = connectionStatus;
 	}
 
-	public boolean connectionStatusUpdate(HttpServletRequest request) {
+	public boolean connectionStatusUpdate(HttpServletRequest request) throws SQLException {
 
 		String pseudo = (String) request.getAttribute("pseudo");
 		String mdp = (String) request.getAttribute("mdp");
@@ -44,7 +44,8 @@ public class ConnectionController {
 			while (result.next()) {
 				sqlMdp = result.getString("mdp");
 			}
-
+						
+			con.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -104,7 +105,7 @@ public class ConnectionController {
 				int i = ps.executeUpdate();
 
 			}
-
+			con.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -117,7 +118,7 @@ public class ConnectionController {
 	public User connectionInfos(HttpServletRequest request) {
 
 		SqlConnection infosConnection = new SqlConnection();
-		
+
 		Connection con = infosConnection.SqlConectionStart();
 		String pseudo = (String) request.getAttribute("pseudo");
 		User userInstance = new User();
@@ -129,7 +130,7 @@ public class ConnectionController {
 			ResultSet result = st.executeQuery(sql);
 
 			while (result.next()) {
-				
+
 				userInstance.setId(result.getInt("id_user"));
 				userInstance.setPrenom(result.getString("prenom"));
 				userInstance.setNom(result.getString("nom"));
@@ -141,7 +142,7 @@ public class ConnectionController {
 				}
 
 			}
-
+			con.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
